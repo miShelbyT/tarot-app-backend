@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2020_12_29_163601) do
     t.index ["card_id"], name: "index_card_readings_on_card_id"
     t.index ["reading_id"], name: "index_card_readings_on_reading_id"
   end
-  
+
   create_table "cards", force: :cascade do |t|
     t.string "img_url"
     t.string "card_type"
