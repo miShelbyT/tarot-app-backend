@@ -6,6 +6,8 @@ Rails.application.routes.draw do
       resources :cards, only: [:show, :index]
       resources :users, only: [:show, :index, :create]
       post '/users/login', to: 'users#login'
+      resources :readings, only: [:show, :index, :create]
+      resources :card_readings, only: [:index, :create]
     end
   end
 
