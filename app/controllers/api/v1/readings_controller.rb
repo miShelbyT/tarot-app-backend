@@ -11,14 +11,14 @@ class Api::V1::ReadingsController < ApplicationController
     end
 
     def create
-        reading = Reading.create(reading_params)
+        reading = Reading.create!(reading_params)
         render json: reading
     end
 
     private
 
     def reading_params
-        params.permit(:user_comment, :is_favorite, :user_id)
+        params.permit(:user_comment, :is_favorite, :user_id, :name, :question)
     end
       
   end
