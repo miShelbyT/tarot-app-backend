@@ -3,7 +3,7 @@ class Api::V1::CardReadingsController < ApplicationController
 
   def index
     card_readings = CardReading.all
-    render json: card_readings
+    render json: card_readings.to_json(:only => [:id, :card_id, :reading_id])
   end
 
   def create

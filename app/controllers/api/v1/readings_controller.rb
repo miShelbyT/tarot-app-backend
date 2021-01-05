@@ -2,11 +2,11 @@ class Api::V1::ReadingsController < ApplicationController
 
     def show
       reading = Reading.find(params[:id])
-      render json: reading 
+      render json: reading
     end
   
     def index
-      readings = Reading.all
+      readings = Reading.all.includes(:card_readings)
       render json: readings
     end
 
@@ -18,7 +18,7 @@ class Api::V1::ReadingsController < ApplicationController
     private
 
     def reading_params
-        params.permit(:user_comment, :is_favorite, :user_id, :name, :question)
+        params.permit(:user_comment, :user_id, :name, :question)
     end
       
   end
