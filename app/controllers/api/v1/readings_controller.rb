@@ -15,6 +15,18 @@ class Api::V1::ReadingsController < ApplicationController
         render json: reading
     end
 
+    def update
+      reading = Reading.find(params[:id])
+      reading.update(reading_params)
+      render json: reading
+    end
+
+    def destroy
+      reading = Reading.find(params[:id])
+      reading.destroy
+      render json: {}
+    end
+
     private
 
     def reading_params
